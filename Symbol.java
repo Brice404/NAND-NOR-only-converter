@@ -1,3 +1,3 @@
 enum Symbol{
-    Variable, NOT, AND, OR, LPAREN, RPAREN;
+    VARIABLE, NOT, AND, OR, LPAREN, RPAREN;
 }

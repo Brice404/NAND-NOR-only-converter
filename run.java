@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-class run {
+class Run {
     public static void main(String[] args) {
         /*
         A+B => nand only circuit = (A*B)'
@@ -37,7 +37,7 @@ class run {
                     case "AND" -> token.add(new Classify(Symbol.AND,currentToken));
                     case "OR" -> token.add(new Classify(Symbol.OR,currentToken));
                     case "NOT" -> token.add(new Classify(Symbol.NOT,currentToken));
-                    default -> token.add(new Classify(Symbol.Variable,currentToken));
+                    default -> token.add(new Classify(Symbol.VARIABLE,currentToken));
                 }
             }
             System.out.println(token);
