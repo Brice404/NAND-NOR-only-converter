@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-class Run {
+class Main {
     public static void main(String[] args) {
         /*
         A+B => nand only circuit = (A*B)'
@@ -40,7 +40,7 @@ class Run {
                     default -> token.add(new Classify(Symbol.VARIABLE,currentToken));
                 }
             }
-            System.out.println(token);
+            System.out.println(token+"\n");
         } 
     }
 }
