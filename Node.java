@@ -22,7 +22,7 @@ class Node {
     Node toNAND(){
         switch (type) {
             case VARIABLE:
-                return this;
+                return new Node(value);
 
             case NOT: {
                 Node a = left.toNAND();
@@ -50,7 +50,7 @@ class Node {
     Node toNOR(){
         switch (type) {
             case VARIABLE:
-                return this;
+                return new Node(value);
 
             case NOT: {
                 Node a = left.toNOR();
