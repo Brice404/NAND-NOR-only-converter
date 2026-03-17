@@ -40,7 +40,11 @@ class Main {
                     default -> token.add(new Classify(Symbol.VARIABLE,currentToken));
                 }
             }
-            System.out.println(token+"\n");
+
+            Parser parser = new Parser(token);
+            Node root = parser.parse();
+
+            System.out.println(root);
         } 
     }
 }

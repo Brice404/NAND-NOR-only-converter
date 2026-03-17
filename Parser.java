@@ -28,7 +28,7 @@ class Parser {
             throw new RuntimeException("Expected " + type + " but got " + nextToken);
     }
     
-    //Primary
+    //VARIABLE
     private Node parsePrimary() {
         Classify nextToken = peek();
 
@@ -38,7 +38,7 @@ class Parser {
 
         if (nextToken.type == Symbol.LPAREN) {
             consume();
-            Node inner = parseOr();
+            Node inner = parseOR();
             expect(Symbol.RPAREN);
             return inner;
         }
@@ -50,7 +50,7 @@ class Parser {
         throw new RuntimeException("Unexpected token: " + nextToken);
     }
     
-    //OR, AND, NOT, VARIABLE
+    //OR, AND, NOT
     public Node parse(){
         Node result = parseOR();
 
@@ -61,14 +61,33 @@ class Parser {
     }
 
     private Node parseOR(){
+        Node left = parseAND();
 
+        while (peek() != null && peek().type == Symbol.OR) {
+            consume();
+            Node right = parseAND();
+            left = new Node(Symbol.OR, left, right); 
+        }
+        return left;
     }
 
     private Node parseAND(){
-        
+        Node left = parseNOT();
+
+        while (peek() != null && peek().type == Symbol.AND) { 
+            consume();
+            Node right = parseNOT();
+            left = new Node(Symbol.AND, left, right);
+        }
+        return left;
     }
 
     private Node parseNOT(){
-        
+        if (peek() != null && peek().type == Symbol.NOT){
+            consume();
+            Node child = parseNOT();
+            return new Node(Symbol.NOT, child);
+        }
+        return parsePrimary();
     }
 }
