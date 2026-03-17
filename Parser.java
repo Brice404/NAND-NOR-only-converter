@@ -17,7 +17,6 @@ class Parser {
         return null;
     }
     
-    
     private Classify consume(){
         return tokens.get(position++);
     }
