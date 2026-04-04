@@ -113,8 +113,8 @@ class Node {
         return switch (type) {
             case VARIABLE -> value;
             case NOT -> negated(left);
-            case AND -> "(" + left + " ∧ " + right + ")";
-            case OR -> "(" + left + " ∨ " + right + ")";
+            case AND -> "(" + left + " * " + right + ")";
+            case OR -> "(" + left + " + " + right + ")";
             case NAND -> left == right ? negated(left) : "¬(" + left + " * " + right + ")";
             case NOR -> left == right ? negated(left) : "¬(" + left + " + " + right + ")";
             default -> "(" + left + " " + type + " " + right + ")";

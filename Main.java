@@ -42,8 +42,8 @@ class Main {
                         switch (currentToken) {
                             case "(" -> token.add(new Classify(Symbol.LPAREN, currentToken));
                             case ")" -> token.add(new Classify(Symbol.RPAREN, currentToken));
-                            case "AND", "*" -> token.add(new Classify(Symbol.AND, currentToken));
-                            case "OR", "+" -> token.add(new Classify(Symbol.OR, currentToken));
+                            case "AND", "*", "∧" -> token.add(new Classify(Symbol.AND, currentToken));
+                            case "OR", "+", "∨" -> token.add(new Classify(Symbol.OR, currentToken));
                             case "NOT", "!", "¬" -> token.add(new Classify(Symbol.NOT, currentToken));
                             case "NAND", "!*" -> token.add(new Classify(Symbol.NAND, currentToken));
                             case "NOR", "!+" -> token.add(new Classify(Symbol.NOR, currentToken));
